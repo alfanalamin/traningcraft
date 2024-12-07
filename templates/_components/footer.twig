@@ -1,0 +1,66 @@
+<footer class="bg-blue-700">
+	<div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+		<div class="md:flex md:justify-between md:items-center mb-4">
+			<div class="mb-6 md:mb-0">
+				<a href="{{ siteUrl }}" class="flex items-center">
+					<img src="{{ siteUrl }}images/newLogo2-putih.png" class="h-16 me-3" alt="FlowBite Logo"/>
+					<span class="self-center text-2xl font-semibold whitespace-nowrap text-[#F8FAFC]">Multi Medika Mahadata</span>
+				</a>
+
+			</div>
+			<div class="flex md:flex-row flex-col md:items-center md:gap-8">
+				<p class="font-medium text-xl text-[#F8FAFC]">Ikuti kami</p>
+				<div class="flex gap-4">
+					<a href="{{ siteInfo.facebook }}" target="_blank" class="bg-white md:w-14 w-10 md:h-14 h-10 rounded-full grid place-items-center">
+						<i class="fa-brands fa-facebook text-2xl text-blue-700"></i>
+					</a>
+					<a href="{{ siteInfo.linkedin }}" target="_blank" class="bg-white md:w-14 w-10 md:h-14 h-10 rounded-full grid place-items-center">
+						<i class="fa-brands fa-linkedin text-2xl text-blue-700"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="md:flex justify-between">
+			<div class="basis-1/2 space-y-2">
+				<p class="font-bold md:text-xl text-[#F8FAFC]">multimedika.id</p>
+				<a href="{{ url('address') }}" class="font-bold md:text-xl text-[#F8FAFC] flex gap-2">
+					<i class="fa-solid fa-location-pin"></i>
+					<span class="md:text-left text-justify">
+						Jalan Embong Malang Nomor 1-5, Kelurahan Kedungdoro,
+						                        Kec. Tegalsari, Kota Surabaya, Provinsi Jawa Timur.
+					</span>
+				</a>
+				<a href="tel:+6281931633594" class="font-bold md:text-xl text-[#F8FAFC] flex gap-2">
+					<i class="fa-solid fa-phone"></i>
+					<span>
+						+6281931633594
+					</span>
+				</a>
+				<a href="mailto:official@multimedika.id" class="font-bold md:text-xl text-[#F8FAFC] flex gap-2">
+					<i class="fa-solid fa-envelope"></i>
+					<span>
+						{{ siteInfo.email }}
+					</span>
+				</a>
+			</div>
+			<div class="flex md:flex-col md:justify-start justify-between space-y-2 md:mt-0 mt-4">
+				<div>
+					<p class="font-bold md:text-xl text-[#F8FAFC]">Product</p>
+					<a href="{{ url('dokterpost') }}" class="font-normal md:text-xl flex text-[#F8FAFC]">DokterPost</a>
+					<a href="{{ url('doktercares') }}" class="font-normal md:text-xl flex text-[#F8FAFC]">DokterCares</a>
+				</div>
+				<div>
+					<a href="{{ url('news') }}" class="font-bold md:text-xl flex text-[#F8FAFC]">News</a>
+					<a href="{{ url('careers') }}" class="font-bold md:text-xl flex text-[#F8FAFC]">Careers</a>
+				</div>
+			</div>
+		</div>
+		<hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
+		<div class="sm:flex sm:items-center sm:justify-center">
+			<span class="text-sm text-gray-200 sm:text-center dark:text-gray-400">&copy;
+				{{ "now"|date("Y") }}
+				<a href="{{ siteUrl }}" class="hover:underline">PT Multi Medika Mahadata</a>. All Rights Reserved.
+			</span>
+		</div>
+	</div>
+</footer>

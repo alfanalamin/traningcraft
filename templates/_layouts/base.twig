@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="PT. Multi Medika Mahadata adalah pelopor layanan e-learning medis di Indonesia yang menyediakan pendidikan berkualitas tinggi untuk dokter dan profesional medis. Kami berkomitmen untuk mendukung pengembangan profesionalisme kedokteran melalui platform edukasi yang inovatif dan berbasis riset.">
+		<meta name="keywords" content="PT. Multi Medika Mahadata, e-learning medis, pendidikan kedokteran, layanan kesehatan, dokter Indonesia, pendidikan profesional medis, inovasi kesehatan, kursus medis online">
+		<meta name="author" content="PT. Multi Medika Mahadata">
+		<meta property="og:title" content="PT. Multi Medika Mahadata - Pemimpin Inovatif dalam E-Learning Medis">
+		<meta property="og:description" content="Kami berkomitmen untuk menyediakan akses pendidikan medis berkualitas dengan standar internasional untuk meningkatkan kualitas perawatan kesehatan di Indonesia.">
+		<meta property="og:image" content="images/newLogo2.png">
+		<meta property="og:url" content="/">
+		<meta name="robots" content="index, follow">
+		<title>Multimedika</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+
+		<link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet"/>
+
+		<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+
+		<link rel="shortcut icon" href="images/newLogo2-128.png" type="image/x-icon">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+		<script src="https://kit.fontawesome.com/908baa3344.js" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="https://anijs.github.io/lib/anicollection/anicollection.css"/> {% block css %}{% endblock %}
+		</head>
+
+		<body
+			class="font-['Inter'] bg-white">
+			<!-- Header -->
+			{% include '_components/navbar.twig' %}
+
+			{% block content %}{% endblock %}
+
+			{% include '_components/footer.twig' %}
+
+			{% block js %}{% endblock %}
+			<script src="https://anijs.github.io/lib/anijs/anijs.js"></script>
+			<script src="https://anijs.github.io/lib/anijs/helpers/scrollreveal/anijs-helper-scrollreveal.js"></script>
+		</body>
+
+	</html>

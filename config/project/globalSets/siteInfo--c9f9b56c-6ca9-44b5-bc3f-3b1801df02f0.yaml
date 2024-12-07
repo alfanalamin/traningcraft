@@ -1,0 +1,76 @@
+fieldLayouts:
+  e15cd803-a192-486d-b298-1cd08d803799:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-12-06T06:33:40+00:00'
+            elementCondition: null
+            fieldUid: bd2542ae-0e50-4d2a-8e7d-b096b415f38c # Featured Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1ad38576-15fd-47e7-a0dd-c63b18c89150
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-06T06:33:40+00:00'
+            elementCondition: null
+            fieldUid: 3339d500-3451-4fbb-ba3e-a96c14ee8d42 # Email
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 255009a5-f165-4be9-b883-cc3e381a8e73
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-06T06:33:40+00:00'
+            elementCondition: null
+            fieldUid: 4f67062d-3b48-4d9e-9f63-aa3fab906296 # Facebook
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9f932c24-ac92-47e5-a72b-7e1137d26770
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-06T01:31:20+00:00'
+            elementCondition: null
+            fieldUid: 34317c59-2dc3-4676-8838-60477d5b628e # Linkedin
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6ba45f72-be3e-426a-bb65-963845290e05
+            userCondition: null
+            warning: null
+            width: 100
+        name: Info
+        uid: b810413d-5665-459b-a727-74d9467a2474
+        userCondition: null
+handle: siteInfo
+name: 'Site Info'
+sortOrder: 1

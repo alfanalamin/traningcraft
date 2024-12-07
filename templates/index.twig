@@ -1,0 +1,90 @@
+{% extends "_layouts/base.twig" %}
+
+{% block content %}
+	<!-- Page Section -->
+	<section class="bg-[#F8FAFC]  mb-8">
+		<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+			<div class="flex flex-col justify-center" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
+				<h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-blue-700  md:text-5xl ">{{entry.title}}
+				</h1>
+				<p class="mb-8 text-lg font-medium text-gray-500 lg:text-xl ">
+					{{entry.subtitle}}
+				</p>
+				<div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+					<a href="#about" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 ">
+						Get started
+						<svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
+							<path stroke="currentColor" stroke-width="2" d="M1 5h12M6 1l5 4-5 4"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+			<div class="flex justify-center items-center">
+				<img src="images/home/1.JPG" alt="Hero Image" class="max-w-full h-auto">
+			</div>
+		</div>
+	</section>
+
+	<!-- Section People -->
+	<section id="about" class="py-16 bg-white">
+		<div class="max-w-screen-xl mx-auto px-4">
+			<h2 class="text-3xl font-bold mb-6 text-center">Blog Posts</h2>
+			<div class="flex flex-wrap justify-center gap-8">
+				{% set blogPosts = craft.entries.section('post').limit(3) %}
+				{% for post in blogPosts %}
+					<div class="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 max-w-xs w-full">
+						<h3 class="text-2xl font-extrabold text-gray-900 mb-4">
+							{% if post.postCategory is not empty %}
+								{{ post.postCategory.one().title }}
+							{% else %}
+								No category assigned
+							{% endif %}
+						</h3>
+						<p class="text-lg text-gray-500 mb-6">
+							{{ post.detail }}
+						</p>
+						<a href="{{ post.url }}" class="text-blue-600 hover:text-blue-800 font-semibold">
+							Read More
+							<svg class="w-4 h-4 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
+								<path stroke="currentColor" stroke-width="2" d="M1 5h12M6 1l5 4-5 4"></path>
+							</svg>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class="text-center mt-8">
+				<a href="#services" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 transition-all focus:ring-4 focus:ring-blue-300">
+					Learn More
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Post Section -->
+	<section id="services" class="py-16">
+		<div class="max-w-screen-xl mx-auto text-center px-4">
+			<h2 class="text-3xl font-extrabold text-gray-900 mb-6">
+				Contact Us
+			</h2>
+			<p class="text-lg text-gray-500 mb-8">
+				Menyediakan berbagai layanan e-learning untuk mendukung pengembangan profesionalisme medis di Indonesia.
+			</p>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				{% set people = craft.entries.section('people').limit(6) %}
+				{% for person in people %}
+					<div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
+						<img src="images/doktercares-logo.png" alt="Service 1" class="w-16 h-16 mb-4">
+						<h3 class="text-xl font-semibold text-gray-900">{{ person.title }}</h3>
+						<p class="text-gray-600">
+							{{ person.list }}
+						</p>
+						<p class="text-gray-600">
+							{{ person.detail }}
+						</p>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

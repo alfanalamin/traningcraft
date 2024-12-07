@@ -1,0 +1,145 @@
+dateModified: 1733594415
+elementSources:
+  craft\elements\Entry:
+    -
+      key: '*'
+      type: native
+    -
+      heading: Channels
+      type: heading
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:de7aed56-418a-419a-83f2-55b03adc87a2' # Page
+      tableAttributes:
+        - 'field:fd74f978-7cb4-44c8-bd8e-1057e727f173' # Detail
+        - status
+        - postDate
+        - link
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:d60613f1-a00d-453f-8e48-917c5a75abb1' # People
+      tableAttributes:
+        - status
+        - 'field:fd74f978-7cb4-44c8-bd8e-1057e727f173' # Detail
+        - 'field:82a497c3-e8af-48fa-ba25-5ee67db27f13' # List
+        - postDate
+        - link
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:7de6fd07-8562-43b6-b1ed-c2f88af31cb3' # Post
+      tableAttributes:
+        - 'field:3fcf33b8-7bad-4794-8a1f-591cc0cf2ec6' # Post Category
+        - 'field:fd74f978-7cb4-44c8-bd8e-1057e727f173' # Detail
+        - status
+        - postDate
+        - link
+      type: native
+    -
+      heading: ''
+      type: heading
+    -
+      defaultSort:
+        - title
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: singles
+      tableAttributes:
+        - status
+        - postDate
+        - link
+      type: native
+    -
+      heading: ''
+      type: heading
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:f87739a2-ce47-48fe-a736-29329663e920' # About
+      tableAttributes:
+        - status
+        - postDate
+        - link
+      type: native
+email:
+  fromEmail: admin@gmail.com
+  fromName: 'Admin Panel'
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  featuredImage:
+    hasUrls: true
+    name: 'Featured Image'
+    settings:
+      path: '@webroot/images/siteinfo'
+    type: craft\fs\Local
+    url: '@web/images/siteinfo'
+meta:
+  __names__:
+    3fcf33b8-7bad-4794-8a1f-591cc0cf2ec6: 'Post Category' # Post Category
+    4f5c8269-6fe0-4dad-a3c9-2534c9454f3d: Page # Page
+    4f67062d-3b48-4d9e-9f63-aa3fab906296: Facebook # Facebook
+    5aeed479-2252-438c-af38-740d5d61b6ef: 'Featured Image' # Featured Image
+    7de6fd07-8562-43b6-b1ed-c2f88af31cb3: Post # Post
+    38fe6ea5-fa58-4b31-80f2-dbfa5c544461: 'Page Builder' # Page Builder
+    65b5a8b2-53ac-4271-8d07-225846efd8e6: About # About
+    82a497c3-e8af-48fa-ba25-5ee67db27f13: List # List
+    0439cd5c-c1bb-4cbc-89c3-76b49c2acee5: Subtitle # Subtitle
+    526c3660-3a2f-4270-9389-f02a62b06a11: 'Admin Panel' # Admin Panel
+    563e5a1e-b687-4c7d-a592-d6369941d6f9: 'Gallery Type' # Gallery Type
+    991db876-bf53-4186-b54c-67229d91b09f: 'Button Text ' # Button Text 
+    3339d500-3451-4fbb-ba3e-a96c14ee8d42: Email # Email
+    3467b944-5ee9-49f5-8c2b-014d805f88c3: 'Post Category' # Post Category
+    7473b466-e762-4d74-871f-ac3204ebdbe5: Simple # Simple
+    34317c59-2dc3-4676-8838-60477d5b628e: Linkedin # Linkedin
+    5540424e-b105-48ba-b95e-cb3d5bd000cd: People # People
+    18974388-ce58-40e8-8829-1fb3519fd74c: Hero # Hero
+    aabef5cd-4280-4ced-9e4c-24d7464bd855: 'Home Page' # Home Page
+    b8a7d655-c9d2-47d8-9158-6f4dcb615d31: 'Home Page' # Home Page
+    bd2542ae-0e50-4d2a-8e7d-b096b415f38c: 'Featured Image' # Featured Image
+    bd8343be-8627-4ef9-8bf1-e42ded058163: 'Image Position' # Image Position
+    c7f3f845-e765-409b-a4c8-44a1989ef0b1: Post # Post
+    c9adeee6-4546-4e6b-9085-f6d6a87f4066: 'Admin Panel' # Admin Panel
+    c9f9b56c-6ca9-44b5-bc3f-3b1801df02f0: 'Site Info' # Site Info
+    d60613f1-a00d-453f-8e48-917c5a75abb1: People # People
+    d2563507-c2bd-4649-86c6-4a72e13973ad: Galery # Galery
+    db57af9c-9cae-43f8-8d91-4c87f55b948f: 'Button Link ' # Button Link 
+    de7aed56-418a-419a-83f2-55b03adc87a2: Page # Page
+    df7286b0-a0d2-4865-94f5-5f11f6140e4d: 'Content Page' # Content Page
+    e583f145-00c3-4eab-aeac-a445f67f361f: Paragraf # Paragraf
+    f87739a2-ce47-48fe-a736-29329663e920: About # About
+    fd74f978-7cb4-44c8-bd8e-1057e727f173: Detail # Detail
+plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
+system:
+  edition: solo
+  live: true
+  name: 'Admin Panel'
+  schemaVersion: 5.5.0.0
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

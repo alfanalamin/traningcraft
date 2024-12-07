@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - b8a7d655-c9d2-47d8-9158-6f4dcb615d31 # Home Page
+handle: homePage
+maxAuthors: 1
+name: 'Home Page'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  526c3660-3a2f-4270-9389-f02a62b06a11: # Admin Panel
+    enabledByDefault: true
+    hasUrls: true
+    template: index.twig
+    uriFormat: __home__
+type: single

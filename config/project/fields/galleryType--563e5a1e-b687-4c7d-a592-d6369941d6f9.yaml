@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: galleryType
+instructions: null
+name: 'Gallery Type'
+searchable: true
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Grid
+        -
+          - value
+          - grid
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Slider
+        -
+          - value
+          - slider
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

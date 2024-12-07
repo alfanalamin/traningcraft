@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - 65b5a8b2-53ac-4271-8d07-225846efd8e6 # About
+handle: about
+maxAuthors: 1
+name: About
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  526c3660-3a2f-4270-9389-f02a62b06a11: # Admin Panel
+    enabledByDefault: true
+    hasUrls: true
+    template: page/about.twig
+    uriFormat: 'about/{slug}'
+type: channel

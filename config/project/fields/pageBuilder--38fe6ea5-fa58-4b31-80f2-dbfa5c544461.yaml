@@ -1,0 +1,24 @@
+columnSuffix: null
+handle: pageBuilder
+instructions: null
+name: 'Page Builder'
+searchable: true
+settings:
+  createButtonLabel: 'Add About'
+  defaultIndexViewMode: cards
+  entryTypes:
+    - df7286b0-a0d2-4865-94f5-5f11f6140e4d # Content Page
+    - 18974388-ce58-40e8-8829-1fb3519fd74c # Hero
+    - 5540424e-b105-48ba-b95e-cb3d5bd000cd # People
+    - d2563507-c2bd-4649-86c6-4a72e13973ad # Galery
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

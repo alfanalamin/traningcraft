@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - c7f3f845-e765-409b-a4c8-44a1989ef0b1 # Post
+handle: post
+maxAuthors: 1
+name: Post
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  526c3660-3a2f-4270-9389-f02a62b06a11: # Admin Panel
+    enabledByDefault: true
+    hasUrls: true
+    template: index.twig
+    uriFormat: 'post/{slug}'
+type: channel

@@ -1,0 +1,53 @@
+color: null
+fieldLayouts:
+  23cfa3d0-d68b-47b8-b8ab-00f85180a01a:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-12-06T07:12:05+00:00'
+            elementCondition: null
+            fieldUid: 82a497c3-e8af-48fa-ba25-5ee67db27f13 # List
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 936dbb59-fddb-470d-a777-d82bb6e98ae3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-06T07:12:05+00:00'
+            elementCondition: null
+            fieldUid: fd74f978-7cb4-44c8-bd8e-1057e727f173 # Detail
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ebb42814-877f-41a8-afdc-8e6567ee25d9
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 1260da80-8cf1-42b6-8684-148f6ab8042b
+        userCondition: null
+handle: people
+hasTitleField: false
+icon: ''
+name: People
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

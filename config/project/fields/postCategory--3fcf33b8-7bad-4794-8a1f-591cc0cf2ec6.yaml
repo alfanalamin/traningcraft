@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: postCategory
+instructions: null
+name: 'Post Category'
+searchable: true
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: true
+  source: 'group:3467b944-5ee9-49f5-8c2b-014d805f88c3' # Post Category
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Categories

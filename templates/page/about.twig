@@ -1,0 +1,149 @@
+{% extends "_layouts/base.twig" %}
+
+{% block content %}
+	{% for block in entry.pageBuilder %}
+		{% switch block.type %}
+			{% case 'contentPage' %}
+				<section class="bg-[#F8FAFC] mb-8">
+					<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+						{% set imagePosition = block.imagePosition %}
+						{% if imagePosition == 'left' %}
+							<div class="w-full justify-center items-center" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
+								{% if block.featuredImage %}
+									<img src="{{ block.featuredImage.one().url }}" alt="Image" class="w-full h-auto object-cover">
+								{% else %}
+									<img src="/images/default-image.jpg" alt="Default Image" class="w-full h-auto object-cover">
+								{% endif %}
+							</div>
+							<div class="w-full flex-col justify-center" data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal">
+								<h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-3xl text-blue-700">
+									{{ block.title }}
+								</h1>
+								<p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+									{{ block.paragraf }}
+								</p>
+							</div>
+						{% elseif imagePosition == 'right' %}
+							<div class="w-full flex-col justify-center" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
+								<h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-3xl text-blue-700">
+									{{ block.title }}
+								</h1>
+								<p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+									{{ block.paragraf }}
+								</p>
+							</div>
+							<div class="w-full justify-center items-center" data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal">
+								{% if block.featuredImage %}
+									<img src="{{ block.featuredImage.one().url }}" alt="Image" class="w-full h-auto object-cover">
+								{% else %}
+									<img src="/images/default-image.jpg" alt="Default Image" class="w-full h-auto object-cover">
+								{% endif %}
+							</div>
+						{% else %}
+							<div class="w-full flex justify-center items-center" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
+								{% if block.featuredImage %}
+									<img src="{{ block.featuredImage.one().url }}" alt="Image" class="w-full h-auto object-cover">
+								{% else %}
+									<img src="/images/default-image.jpg" alt="Default Image" class="w-full h-auto object-cover">
+								{% endif %}
+							</div>
+							<div class="flex flex-col justify-center" data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal">
+								<h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-3xl text-blue-700">
+									{{ block.title }}
+								</h1>
+								<p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+									{{ block.paragraf }}
+								</p>
+							</div>
+						{% endif %}
+					</div>
+				</section>
+			{% case 'hero' %}
+				<section class="bg-[#F8FAFC] mb-8">
+					<div class="py-8 px-4 mx-auto max-w-screen-xl items-center lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+						<div data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
+							<img src="{{ block.featuredImage.one().url }}" alt="image" class="w-full h-auto object-cover">
+						</div>
+						<div class="flex flex-col justify-center" data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal">
+							<h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-3xl text-blue-700">
+								{{ block.title }}
+							</h1>
+							<p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+								{{ block.paragraf }}
+							</p>
+							<div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+								<a href="{{ block.buttonLink }}" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 ">
+									{{ block.buttonText }}
+									<svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
+										<path stroke="currentColor" stroke-width="2" d="M1 5h12M6 1l5 4-5 4"></path>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</section>
+					{% case 'galery' %}
+						<section class="bg-[#F8FAFC] mb-8">
+							<div class="py-8 px-4 mx-auto max-w-screen-xl">
+								<h2 class="text-3xl font-extrabold mb-6 text-center">{{ block.title }}</h2>
+								{% if block.galleryType == 'slider' %}
+									<!-- Slider Layout -->
+									<div id="carouselExample" class="relative" data-carousel="slide">
+										<div
+											class="relative h-64 md:h-96 overflow-hidden rounded-lg">
+											<!-- Carousel items -->
+											{% for image in block.featuredImage %}
+												<div class="hidden duration-700 ease-in-out" data-carousel-item>
+													<img src="{{ image.url }}" class="absolute block w-full h-full object-cover"/>
+												</div>
+											{% endfor %}
+										</div>
+										<!-- Carousel Controls -->
+										<button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+											<span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-gray-200">
+												<svg class="w-5 h-5 text-white" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+												</svg>
+											</span>
+										</button>
+										<button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+											<span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-gray-200">
+												<svg class="w-5 h-5 text-white" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+												</svg>
+											</span>
+										</button>
+									</div>
+								{% elseif block.galleryType == 'grid' %}
+									<!-- Grid Layout for Images -->
+									<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+										{% for image in block.featuredImage %}
+											<div
+												class="bg-white shadow-lg rounded-lg overflow-hidden">
+												<!-- Menambahkan rounded-lg pada gambar dan div -->
+												<img src="{{ image.url }}" class="w-full h-56 object-cover rounded-lg"/>
+											</div>
+										{% endfor %}
+									</div>
+								{% endif %}
+							</div>
+						</section>
+					{% case 'people' %}
+						<section class="bg-[#F8FAFC] mb-8">
+							<div class="py-8 px-4 mx-auto max-w-screen-xl items-center lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+								<div class="flex flex-col justify-center" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
+									<h2 class="text-3xl font-extrabold">Our board of management</h2>
+									<ul class="list-none">
+										{% if block.list is not empty %}
+											<li class="person-item mb-4">
+												<h3 class="font-semibold text-xl">{{ block.list }}</h3>
+												<p class="text-lg text-gray-600">{{ block.detail }}</p>
+											</li>
+										{% endif %}
+									</ul>
+								</div>
+							</div>
+						</section>
+
+					{% endswitch %}
+				{% endfor %}
+			{% endblock %}
