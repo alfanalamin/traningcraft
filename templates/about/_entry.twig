@@ -5,7 +5,7 @@
 		{% switch block.type %}
 			{% case 'contentPage' %}
 				<section class="bg-[#F8FAFC] mb-8">
-					<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+					<div class="py-8 px-4 mx-auto max-w-screen-xl items-center lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
 						{% set imagePosition = block.imagePosition %}
 						{% if imagePosition == 'left' %}
 							<div class="w-full justify-center items-center" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
@@ -128,22 +128,32 @@
 							</div>
 						</section>
 					{% case 'people' %}
+						{# {% dd block.type.hndle %} #}
 						<section class="bg-[#F8FAFC] mb-8">
-							<div class="py-8 px-4 mx-auto max-w-screen-xl items-center lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
-								<div class="flex flex-col justify-center" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
-									<h2 class="text-3xl font-extrabold">Our board of management</h2>
-									<ul class="list-none">
-										{% if block.list is not empty %}
-											<li class="person-item mb-4">
-												<h3 class="font-semibold text-xl">{{ block.list }}</h3>
-												<p class="text-lg text-gray-600">{{ block.detail }}</p>
-											</li>
-										{% endif %}
-									</ul>
-								</div>
+							<div class="py-8 px-4 mx-auto max-w-screen-xl" data-anijs="if: scroll, on: window, do: bounceInDown animated, before: $scrollReveal">
+								<p class="md:text-3xl text-2xl font-extrabold text-blue-700">
+									{{block.title | raw}}
+								</p>
+							</div>
+
+							<div
+								class="py-8 px-4 mx-auto max-w-screen-xl items-stretch gap-8 grid md:grid-cols-2 grid-cols-1">
+								<!-- Looping data people -->
+								{% for item in block.listPeople.all() %}
+									<div
+										class="flex gap-4 items-center" data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal">
+										<!-- Gambar Profil -->
+										<img
+										src="{{ item.featuredImage.one().url }}" alt="Test" class="w-1/2 rounded-lg object-cover">
+										<!-- Detail Orang -->
+										<div>
+											<p class="font-semibold text-lg">{{ item.list }}</p>
+											<p class="font-normal text-base">{{ item.detail }}</p>
+										</div>
+									</div>
+								{% endfor %}
 							</div>
 						</section>
-
 					{% endswitch %}
 				{% endfor %}
 			{% endblock %}

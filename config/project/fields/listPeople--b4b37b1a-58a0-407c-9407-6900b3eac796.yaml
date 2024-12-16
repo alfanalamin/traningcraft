@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: listPeople
+instructions: null
+name: 'List People'
+searchable: false
+settings:
+  createButtonLabel: 'Add List People'
+  defaultIndexViewMode: cards
+  entryTypes:
+    - 5a71b206-09a1-42d2-bd43-b3b179ecbc6d # People List
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: true
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

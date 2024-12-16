@@ -1,4 +1,4 @@
-dateModified: 1733594415
+dateModified: 1734331681
 elementSources:
   craft\elements\Entry:
     -
@@ -13,7 +13,7 @@ elementSources:
         - desc
       defaultViewMode: ''
       disabled: false
-      key: 'section:de7aed56-418a-419a-83f2-55b03adc87a2' # Page
+      key: 'section:de7aed56-418a-419a-83f2-55b03adc87a2'
       tableAttributes:
         - 'field:fd74f978-7cb4-44c8-bd8e-1057e727f173' # Detail
         - status
@@ -26,7 +26,7 @@ elementSources:
         - desc
       defaultViewMode: ''
       disabled: false
-      key: 'section:d60613f1-a00d-453f-8e48-917c5a75abb1' # People
+      key: 'section:d60613f1-a00d-453f-8e48-917c5a75abb1'
       tableAttributes:
         - status
         - 'field:fd74f978-7cb4-44c8-bd8e-1057e727f173' # Detail
@@ -40,7 +40,7 @@ elementSources:
         - desc
       defaultViewMode: ''
       disabled: false
-      key: 'section:7de6fd07-8562-43b6-b1ed-c2f88af31cb3' # Post
+      key: 'section:7de6fd07-8562-43b6-b1ed-c2f88af31cb3'
       tableAttributes:
         - 'field:3fcf33b8-7bad-4794-8a1f-591cc0cf2ec6' # Post Category
         - 'field:fd74f978-7cb4-44c8-bd8e-1057e727f173' # Detail
@@ -93,10 +93,9 @@ fs:
 meta:
   __names__:
     3fcf33b8-7bad-4794-8a1f-591cc0cf2ec6: 'Post Category' # Post Category
-    4f5c8269-6fe0-4dad-a3c9-2534c9454f3d: Page # Page
     4f67062d-3b48-4d9e-9f63-aa3fab906296: Facebook # Facebook
+    5a71b206-09a1-42d2-bd43-b3b179ecbc6d: 'People List' # People List
     5aeed479-2252-438c-af38-740d5d61b6ef: 'Featured Image' # Featured Image
-    7de6fd07-8562-43b6-b1ed-c2f88af31cb3: Post # Post
     38fe6ea5-fa58-4b31-80f2-dbfa5c544461: 'Page Builder' # Page Builder
     65b5a8b2-53ac-4271-8d07-225846efd8e6: About # About
     82a497c3-e8af-48fa-ba25-5ee67db27f13: List # List
@@ -111,16 +110,14 @@ meta:
     5540424e-b105-48ba-b95e-cb3d5bd000cd: People # People
     18974388-ce58-40e8-8829-1fb3519fd74c: Hero # Hero
     aabef5cd-4280-4ced-9e4c-24d7464bd855: 'Home Page' # Home Page
+    b4b37b1a-58a0-407c-9407-6900b3eac796: 'List People' # List People
     b8a7d655-c9d2-47d8-9158-6f4dcb615d31: 'Home Page' # Home Page
     bd2542ae-0e50-4d2a-8e7d-b096b415f38c: 'Featured Image' # Featured Image
     bd8343be-8627-4ef9-8bf1-e42ded058163: 'Image Position' # Image Position
-    c7f3f845-e765-409b-a4c8-44a1989ef0b1: Post # Post
     c9adeee6-4546-4e6b-9085-f6d6a87f4066: 'Admin Panel' # Admin Panel
     c9f9b56c-6ca9-44b5-bc3f-3b1801df02f0: 'Site Info' # Site Info
-    d60613f1-a00d-453f-8e48-917c5a75abb1: People # People
     d2563507-c2bd-4649-86c6-4a72e13973ad: Galery # Galery
     db57af9c-9cae-43f8-8d91-4c87f55b948f: 'Button Link ' # Button Link 
-    de7aed56-418a-419a-83f2-55b03adc87a2: Page # Page
     df7286b0-a0d2-4865-94f5-5f11f6140e4d: 'Content Page' # Content Page
     e583f145-00c3-4eab-aeac-a445f67f361f: Paragraf # Paragraf
     f87739a2-ce47-48fe-a736-29329663e920: About # About

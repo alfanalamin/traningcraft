@@ -6,25 +6,39 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            dateAdded: '2024-12-06T07:12:05+00:00'
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-16T06:46:12+00:00'
+            disabled: false
             elementCondition: null
-            fieldUid: 82a497c3-e8af-48fa-ba25-5ee67db27f13 # List
-            handle: null
+            id: null
             includeInCards: false
+            inputType: null
             instructions: null
             label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
             providesThumbs: false
-            required: false
+            readonly: false
+            required: true
+            size: null
+            step: null
             tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 936dbb59-fddb-470d-a777-d82bb6e98ae3
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: afde9186-a379-4b69-8a4e-2b9edbe89851
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-12-06T07:12:05+00:00'
+            dateAdded: '2024-12-16T06:46:12+00:00'
             elementCondition: null
-            fieldUid: fd74f978-7cb4-44c8-bd8e-1057e727f173 # Detail
+            fieldUid: b4b37b1a-58a0-407c-9407-6900b3eac796 # List People
             handle: null
             includeInCards: false
             instructions: null
@@ -33,7 +47,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: ebb42814-877f-41a8-afdc-8e6567ee25d9
+            uid: dc888c70-9817-448f-9679-211b5bf83da1
             userCondition: null
             warning: null
             width: 100
@@ -41,7 +55,7 @@ fieldLayouts:
         uid: 1260da80-8cf1-42b6-8684-148f6ab8042b
         userCondition: null
 handle: people
-hasTitleField: false
+hasTitleField: true
 icon: ''
 name: People
 showSlugField: true

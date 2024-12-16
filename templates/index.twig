@@ -1,90 +1,283 @@
 {% extends "_layouts/base.twig" %}
 
 {% block content %}
-	<!-- Page Section -->
-	<section class="bg-[#F8FAFC]  mb-8">
-		<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
-			<div class="flex flex-col justify-center" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
-				<h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-blue-700  md:text-5xl ">{{entry.title}}
-				</h1>
-				<p class="mb-8 text-lg font-medium text-gray-500 lg:text-xl ">
-					{{entry.subtitle}}
-				</p>
-				<div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
-					<a href="#about" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 ">
-						Get started
-						<svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
-							<path stroke="currentColor" stroke-width="2" d="M1 5h12M6 1l5 4-5 4"></path>
-						</svg>
-					</a>
-				</div>
-			</div>
-			<div class="flex justify-center items-center">
-				<img src="images/home/1.JPG" alt="Hero Image" class="max-w-full h-auto">
-			</div>
-		</div>
-	</section>
+	{% for block in entry.pageBuilder %}
+		{% switch block.type %}
+			{% case 'contentPage' %}
+				<section class="bg-[#F8FAFC] mb-8">
+					{% set imagePosition = block.imagePosition ? block.imagePosition : 'default' %}
+					<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16 {% if imagePosition == 'left' %} lg:grid-flow-row-dense {% endif %}">
+						{% set featuredImages = block.featuredImage.all() %}
+						{% if imagePosition == 'right' %}
+							<div class="flex justify-center items-center order-2 lg:order-2">
+								<div
+									id="default-carousel" class="relative w-full" data-carousel="slide">
+									<!-- Carousel Wrapper -->
+									<div class="relative h-72 overflow-hidden rounded-lg md:h-96">
+										{% for image in featuredImages %}
+											<div class="{% if loop.first %} duration-700 ease-in-out {% else %} hidden duration-700 ease-in-out {% endif %}" data-carousel-item>
+												<img src="{{ image.url }}" class="absolute block w-full h-full object-cover rounded-lg" alt="Carousel Image">
+											</div>
+										{% endfor %}
+									</div>
+									<!-- Carousel Controls -->
+									<button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+										<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
+											<svg class="w-4 h-4 text-blue-700" fill="none" stroke="currentColor" viewbox="0 0 6 10">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1L1 5l4 4"></path>
+											</svg>
+											<span class="sr-only">Previous</span>
+										</span>
+									</button>
+									<button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+										<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
+											<svg class="w-4 h-4 text-blue-700" fill="none" stroke="currentColor" viewbox="0 0 6 10">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 9l4-4-4-4"></path>
+											</svg>
+											<span class="sr-only">Next</span>
+										</span>
+									</button>
+								</div>
+							</div>
+						{% else %}
+							<div class="flex justify-center items-center order-1 lg:order-1">
+								<div
+									id="default-carousel" class="relative w-full" data-carousel="slide">
+									<!-- Carousel Wrapper -->
+									<div class="relative h-72 overflow-hidden rounded-lg md:h-96">
+										{% for image in featuredImages %}
+											<div class="{% if loop.first %} duration-700 ease-in-out {% else %} hidden duration-700 ease-in-out {% endif %}" data-carousel-item>
+												<img src="{{ image.url }}" class="absolute block w-full h-full object-cover rounded-lg" alt="Carousel Image">
+											</div>
+										{% endfor %}
+									</div>
+									<!-- Carousel Controls -->
+									<button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+										<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
+											<svg class="w-4 h-4 text-blue-700" fill="none" stroke="currentColor" viewbox="0 0 6 10">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1L1 5l4 4"></path>
+											</svg>
+											<span class="sr-only">Previous</span>
+										</span>
+									</button>
+									<button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+										<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
+											<svg class="w-4 h-4 text-blue-700" fill="none" stroke="currentColor" viewbox="0 0 6 10">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 9l4-4-4-4"></path>
+											</svg>
+											<span class="sr-only">Next</span>
+										</span>
+									</button>
+								</div>
+							</div>
+						{% endif %}
+						<div class="flex flex-col justify-center {% if imagePosition == 'right' %} order-1 lg:order-1 {% else %} order-2 lg:order-2 {% endif %}" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
+							<h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-blue-700 dark:text-blue-500 md:text-5xl dark:text-white">
+								{{ block.title | raw }}
+							</h1>
+							<p class="mb-8 text-lg font-medium text-gray-500 lg:text-xl dark:text-gray-400">
+								{{ block.paragraf }}
+							</p>
+							<div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+								<a href="#about" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 dark:bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+									Get started
+									<svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
+										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
 
-	<!-- Section People -->
-	<section id="about" class="py-16 bg-white">
-		<div class="max-w-screen-xl mx-auto px-4">
-			<h2 class="text-3xl font-bold mb-6 text-center">Blog Posts</h2>
-			<div class="flex flex-wrap justify-center gap-8">
-				{% set blogPosts = craft.entries.section('post').limit(3) %}
-				{% for post in blogPosts %}
-					<div class="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 max-w-xs w-full">
-						<h3 class="text-2xl font-extrabold text-gray-900 mb-4">
-							{% if post.postCategory is not empty %}
-								{{ post.postCategory.one().title }}
-							{% else %}
-								No category assigned
-							{% endif %}
-						</h3>
-						<p class="text-lg text-gray-500 mb-6">
-							{{ post.detail }}
+				<section class="bg-[#F8FAFC]  mb-8">
+					<div
+						id="default-carousel" class="relative w-full md:hidden block" data-carousel="slide" data-anijs="if: scroll, on: window, do: bounceInUp animated, before: $scrollReveal">
+						<!-- Carousel wrapper -->
+						<div
+							class="relative h-72 overflow-hidden rounded-lg md:h-96">
+							<!-- Item 1 -->
+							<div class="hidden duration-700 ease-in-out" data-carousel-item>
+								<div class="bg-[#F1F5F9]  rounded-xl  mx-auto my-4 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
+									<i class='fa-solid fa-book-open-reader text-6xl text-blue-700 dark:text-blue-500'></i>
+									<div>
+										<p class="font-extrabold text-[2rem] text-center ">737</p>
+										<p class="font-medium text-lg text-center ">Kelas</p>
+									</div>
+								</div>
+							</div>
+							<!-- Item 2 -->
+							<div class="hidden duration-700 ease-in-out" data-carousel-item>
+								<div class="bg-[#F1F5F9] rounded-xl  mx-auto my-4 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
+									<i class='fa-solid fa-users text-6xl text-blue-700 dark:text-blue-500'></i>
+									<div>
+										<p class="font-extrabold text-[2rem] text-center ">23,727</p>
+										<p class="font-medium text-lg text-center ">Dokter Tergabung</p>
+									</div>
+								</div>
+							</div>
+							<!-- Item 3 -->
+							<div class="hidden duration-700 ease-in-out" data-carousel-item>
+								<div class="bg-[#F1F5F9] rounded-xl  mx-auto my-4 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
+									<i class='fa-solid fa-desktop text-6xl text-blue-700 dark:text-blue-500'></i>
+									<div>
+										<p class="font-extrabold text-[2rem] text-center ">6,828</p>
+										<p class="font-medium text-lg text-center ">On Demand Webinar</p>
+									</div>
+								</div>
+							</div>
+							<!-- Item 4 -->
+							<div class="hidden duration-700 ease-in-out" data-carousel-item>
+								<div class="bg-[#F1F5F9] rounded-xl dark:shadow-gray-700/10 mx-auto my-4 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
+									<i class='fa-solid fa-user-doctor text-6xl text-blue-700 dark:text-blue-500'></i>
+									<div>
+										<p class="font-extrabold text-[2rem] text-center ">415</p>
+										<p class="font-medium text-lg text-center ">Pemateri</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Slider controls -->
+						<button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+							<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+								<svg class="w-4 h-4 text-blue-700 dark:text-blue-500 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 6 10">
+									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+								</svg>
+								<span class="sr-only">Previous</span>
+							</span>
+						</button>
+						<button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+							<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+								<svg class="w-4 h-4 text-blue-700 dark:text-blue-500 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 6 10">
+									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+								</svg>
+								<span class="sr-only">Next</span>
+							</span>
+						</button>
+					</div>
+
+					<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 md:grid hidden grid-cols-4 gap-8 lg:gap-16">
+						<div data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal" class="bg-[#F1F5F9]  rounded-xl dark:shadow-gray-700/10 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
+							<i class='fa-solid fa-book-open-reader text-6xl text-blue-700 dark:text-blue-500'></i>
+							<div>
+								<p class="font-extrabold text-[2rem] text-center ">737</p>
+								<p class="font-medium text-lg text-center ">Kelas</p>
+							</div>
+						</div>
+						<div data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal" class="bg-[#F1F5F9]  rounded-xl dark:shadow-gray-700/10 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
+							<i class='fa-solid fa-users text-6xl text-blue-700 dark:text-blue-500'></i>
+							<div>
+								<p class="font-extrabold text-[2rem] text-center ">23,727</p>
+								<p class="font-medium text-lg text-center ">Dokter Tergabung</p>
+							</div>
+						</div>
+						<div data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal" class="bg-[#F1F5F9]  rounded-xl dark:shadow-gray-700/10 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
+							<i class='fa-solid fa-desktop text-6xl text-blue-700 dark:text-blue-500'></i>
+							<div>
+								<p class="font-extrabold text-[2rem] text-center ">6,828</p>
+								<p class="font-medium text-lg text-center ">On Demand Webinar</p>
+							</div>
+						</div>
+						<div data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal" class="bg-[#F1F5F9]  rounded-xl dark:shadow-gray-700/10 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
+							<i class='fa-solid fa-user-doctor text-6xl text-blue-700 dark:text-blue-500'></i>
+							<div>
+								<p class="font-extrabold text-[2rem] text-center ">415</p>
+								<p class="font-medium text-lg text-center ">Pemateri</p>
+							</div>
+						</div>
+					</div>
+				</section>
+			{% case 'hero' %}
+				<section class="bg-[#F8FAFC]  mb-8" id="about">
+					<div class="mx-auto max-w-screen-xl md:min-h-screen flex md:flex-row flex-col md:py-0 py-4 items-center justify-between gap-4 px-4">
+						<div class="flex flex-col justify-center" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
+							<p class="text-blue-700 dark:text-blue-500 font-extrabold md:text-5xl text-3xl mb-4">
+								{{ block.title | raw }}
+							</p>
+							<a href="{{ block.buttonLink }}" class="text-lg font-bold ">
+								{{ block.buttonText }}
+								<i class="fa-solid fa-arrow-right text-blue-700 dark:text-blue-500 ms-2"></i>
+							</a>
+						</div>
+						<div class="md:w-5/12">
+							<img src="{{ block.featuredImage.one().url }}" alt="image" class="md:min-h-screen object-cover">
+						</div>
+					</div>
+				</section>
+
+				<section class="bg-[#F8FAFC]  min-h-screen flex flex-col justify-center mb-8">
+					<div class="max-w-screen-xl w-full mx-auto px-4" data-anijs="if: scroll, on: window, do: bounceInDown animated, before: $scrollReveal">
+						<p class="text-blue-700 dark:text-blue-500 font-extrabold md:text-5xl text-3xl mb-8">
+							<span class="text-lime-700 dark:text-lime-500">Product in</span><br>
+							Multimedika Maha Data
 						</p>
-						<a href="{{ post.url }}" class="text-blue-600 hover:text-blue-800 font-semibold">
-							Read More
-							<svg class="w-4 h-4 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
-								<path stroke="currentColor" stroke-width="2" d="M1 5h12M6 1l5 4-5 4"></path>
-							</svg>
+					</div>
+					<div class="max-w-screen-xl mx-auto px-4 flex md:flex-row flex-col gap-8">
+						<div data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal" class="min-h-[200px] shadow  bg-[#F1F5F9] md:w-1/2 flex gap-4 px-4 rounded-xl items-center">
+							<img class="md:w-[160px] w-[80px] md:h-[160px] h-[80px]" src="https://dokterpost.com/assets/images/logo.png" alt="dokterpost">
+							<div>
+								<p class="text-blue-700 dark:text-blue-500 font-extrabold md:text-5xl text-3xl mb-4">
+									DokterPost
+								</p>
+								<p class="text-xs md:text-left text-justify ">
+									Dokterpost adalah layanan yang menyediakan seminar dan artikel berkualitas untuk membantu para
+																																																																																																																																																																																																																																																																																																																																																																				                        profesional medis meningkatkan pengetahuan dan wawasan mereka di bidang kesehatan. Melalui seminar
+																																																																																																																																																																																																																																																																																																																																																																				                        yang interaktif dan artikel yang informatif
+								</p>
+							</div>
+						</div>
+						<div data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal" class="min-h-[200px] shadow  bg-[#F1F5F9] md:w-1/2 flex gap-4 px-4 rounded-xl items-center">
+							<img class="md:w-[160px] w-[80px] md:h-[160px] h-[80px]" src="https://doktercares.com/assets/images/doktercares-logo.png" alt="doktercares">
+							<div>
+								<p class="text-blue-700 dark:text-blue-500 font-extrabold md:text-5xl text-3xl mb-4">
+									DokterCares
+								</p>
+								<p class="text-xs md:text-left text-justify ">
+									Doktercares adalah layanan bimbingan belajar (bimbel) yang dirancang khusus untuk mendukung
+																																																																																																																																																																																																																																																																																																																																																																				                        pendidikan di bidang kesehatan, baik bagi mahasiswa maupun profesional medis. Melalui program
+																																																																																																																																																																																																																																																																																																																																																																				                        belajar yang terstruktur
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="max-w-screen-xl w-full mx-auto px-4 mt-8" data-anijs="if: scroll, on: window, do: bounceInUp animated, before: $scrollReveal">
+						<a href="#" class="text-lg font-bold ">Read more product multimedia
+							<i class="fa-solid fa-arrow-right text-blue-700 dark:text-blue-500 ms-2"></i>
 						</a>
 					</div>
-				{% endfor %}
-			</div>
+				</section>
 
-			<div class="text-center mt-8">
-				<a href="#services" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 transition-all focus:ring-4 focus:ring-blue-300">
-					Learn More
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- Post Section -->
-	<section id="services" class="py-16">
-		<div class="max-w-screen-xl mx-auto text-center px-4">
-			<h2 class="text-3xl font-extrabold text-gray-900 mb-6">
-				Contact Us
-			</h2>
-			<p class="text-lg text-gray-500 mb-8">
-				Menyediakan berbagai layanan e-learning untuk mendukung pengembangan profesionalisme medis di Indonesia.
-			</p>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-				{% set people = craft.entries.section('people').limit(6) %}
-				{% for person in people %}
-					<div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
-						<img src="images/doktercares-logo.png" alt="Service 1" class="w-16 h-16 mb-4">
-						<h3 class="text-xl font-semibold text-gray-900">{{ person.title }}</h3>
-						<p class="text-gray-600">
-							{{ person.list }}
-						</p>
-						<p class="text-gray-600">
-							{{ person.detail }}
-						</p>
+				<section class="bg-[#F8FAFC]  flex mb-8 py-8">
+					<div class="max-w-screen-xl w-full mx-auto px-4">
+						<div class="md:flex items-center justify-between">
+							<div class="basis-7/12" data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal">
+								<p class="text-blue-700 dark:text-blue-500 font-extrabold md:text-5xl text-3xl">
+									Contact
+									<span class="text-lime-700 dark:text-lime-500">us</span>
+								</p>
+							</div>
+							<div class="md:mt-0 mt-4" data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal">
+								<p class="font-medium text-xl mb-4 ">
+									For more info and support, please contact our
+									<br>
+									admin office.
+								</p>
+								<p class="font-medium text-xl mb-4 text-blue-700 dark:text-blue-500">
+									Admin
+									<br>
+									+62 819131633594
+									<br>
+									admin@multimedika.id
+								</p>
+								<a href="/contact" class="text-lg font-bold ">Read more contact
+																																																																																																																																																																																																																																						                        multimedia
+									<i class="fa-solid fa-arrow-right text-blue-700 dark:text-blue-500 ms-2"></i>
+								</a>
+							</div>
+						</div>
 					</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
+				</section>
+		{% endswitch %}
+	{% endfor %}
 {% endblock %}

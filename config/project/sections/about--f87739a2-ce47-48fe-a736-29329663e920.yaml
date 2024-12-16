@@ -22,6 +22,6 @@ siteSettings:
   526c3660-3a2f-4270-9389-f02a62b06a11: # Admin Panel
     enabledByDefault: true
     hasUrls: true
-    template: page/about.twig
-    uriFormat: 'about/{slug}'
-type: channel
+    template: about/_entry.twig
+    uriFormat: about
+type: single
