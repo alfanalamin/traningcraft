@@ -12,6 +12,7 @@ settings:
     - 5540424e-b105-48ba-b95e-cb3d5bd000cd # People
     - d2563507-c2bd-4649-86c6-4a72e13973ad # Galery
     - df0b2ccb-96a8-41e0-a201-c3efd24f7842 # Product
+    - 2a3a3c5e-87e7-426d-8bad-7fd24f66b5f7 # Icons
   includeTableView: false
   maxEntries: null
   minEntries: null

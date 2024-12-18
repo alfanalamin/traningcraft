@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: counts
+instructions: null
+name: Counts
+searchable: true
+settings:
+  createButtonLabel: 'Add Counts'
+  defaultIndexViewMode: cards
+  entryTypes:
+    - 3a8d8478-da7e-487c-8dd7-5e30926a12ec # counts
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

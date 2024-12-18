@@ -90,55 +90,27 @@
 					</div>
 				</section>
 
+			{% case 'icons' %}
 				<section class="bg-[#F8FAFC]  mb-8">
-					<div
-						id="default-carousel" class="relative w-full md:hidden block" data-carousel="slide" data-anijs="if: scroll, on: window, do: bounceInUp animated, before: $scrollReveal">
-						<!-- Carousel wrapper -->
-						<div
-							class="relative h-72 overflow-hidden rounded-lg md:h-96">
-							<!-- Item 1 -->
-							<div class="hidden duration-700 ease-in-out" data-carousel-item>
-								<div class="bg-[#F1F5F9]  rounded-xl  mx-auto my-4 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
-									<i class='fa-solid fa-book-open-reader text-6xl text-blue-700 dark:text-blue-500'></i>
-									<div>
-										<p class="font-extrabold text-[2rem] text-center ">737</p>
-										<p class="font-medium text-lg text-center ">Kelas</p>
+					<div id="default-carousel" class="relative w-full md:hidden block" data-carousel="slide" data-anijs="if: scroll, on: window, do: bounceInUp animated, before: $scrollReveal">
+						<div class="relative h-72 overflow-hidden rounded-lg md:h-96">
+							{% for item in block.counts.all() %}
+								<div
+									class="hidden duration-700 ease-in-out" data-carousel-item>
+									{# {% dd item.title%} #}
+									<div
+										class="bg-[#F1F5F9]  rounded-xl  mx-auto my-4 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
+										{# <i class='fa-solid fa-book-open-reader text-6xl text-blue-700 dark:text-blue-500'></i> #}
+										{{ item.title | raw}}
+										<div>
+											<p class="font-extrabold text-[2rem] text-center ">{{ item.subtitle }}</p>
+											<p class="font-medium text-lg text-center ">{{ item.list }}</p>
+										</div>
 									</div>
 								</div>
-							</div>
-							<!-- Item 2 -->
-							<div class="hidden duration-700 ease-in-out" data-carousel-item>
-								<div class="bg-[#F1F5F9] rounded-xl  mx-auto my-4 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
-									<i class='fa-solid fa-users text-6xl text-blue-700 dark:text-blue-500'></i>
-									<div>
-										<p class="font-extrabold text-[2rem] text-center ">23,727</p>
-										<p class="font-medium text-lg text-center ">Dokter Tergabung</p>
-									</div>
-								</div>
-							</div>
-							<!-- Item 3 -->
-							<div class="hidden duration-700 ease-in-out" data-carousel-item>
-								<div class="bg-[#F1F5F9] rounded-xl  mx-auto my-4 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
-									<i class='fa-solid fa-desktop text-6xl text-blue-700 dark:text-blue-500'></i>
-									<div>
-										<p class="font-extrabold text-[2rem] text-center ">6,828</p>
-										<p class="font-medium text-lg text-center ">On Demand Webinar</p>
-									</div>
-								</div>
-							</div>
-							<!-- Item 4 -->
-							<div class="hidden duration-700 ease-in-out" data-carousel-item>
-								<div class="bg-[#F1F5F9] rounded-xl dark:shadow-gray-700/10 mx-auto my-4 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
-									<i class='fa-solid fa-user-doctor text-6xl text-blue-700 dark:text-blue-500'></i>
-									<div>
-										<p class="font-extrabold text-[2rem] text-center ">415</p>
-										<p class="font-medium text-lg text-center ">Pemateri</p>
-									</div>
-								</div>
-							</div>
+							{% endfor %}
 						</div>
 
-						<!-- Slider controls -->
 						<button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
 							<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
 								<svg class="w-4 h-4 text-blue-700 dark:text-blue-500 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 6 10">
@@ -158,36 +130,19 @@
 					</div>
 
 					<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 md:grid hidden grid-cols-4 gap-8 lg:gap-16">
-						<div data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal" class="bg-[#F1F5F9]  rounded-xl dark:shadow-gray-700/10 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
-							<i class='fa-solid fa-book-open-reader text-6xl text-blue-700 dark:text-blue-500'></i>
-							<div>
-								<p class="font-extrabold text-[2rem] text-center ">737</p>
-								<p class="font-medium text-lg text-center ">Kelas</p>
+						{% for item in block.counts.all() %}
+							<div data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal" class="bg-[#F1F5F9]  rounded-xl dark:shadow-gray-700/10 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
+								{{ item.title | raw}}
+								<div>
+									<p class="font-extrabold text-[2rem] text-center ">{{ item.subtitle }}</p>
+									<p class="font-medium text-lg text-center ">{{ item.list }}</p>
+								</div>
 							</div>
-						</div>
-						<div data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal" class="bg-[#F1F5F9]  rounded-xl dark:shadow-gray-700/10 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
-							<i class='fa-solid fa-users text-6xl text-blue-700 dark:text-blue-500'></i>
-							<div>
-								<p class="font-extrabold text-[2rem] text-center ">23,727</p>
-								<p class="font-medium text-lg text-center ">Dokter Tergabung</p>
-							</div>
-						</div>
-						<div data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal" class="bg-[#F1F5F9]  rounded-xl dark:shadow-gray-700/10 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
-							<i class='fa-solid fa-desktop text-6xl text-blue-700 dark:text-blue-500'></i>
-							<div>
-								<p class="font-extrabold text-[2rem] text-center ">6,828</p>
-								<p class="font-medium text-lg text-center ">On Demand Webinar</p>
-							</div>
-						</div>
-						<div data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal" class="bg-[#F1F5F9]  rounded-xl dark:shadow-gray-700/10 shadow w-[250px] h-[250px] flex flex-col items-center justify-center gap-2">
-							<i class='fa-solid fa-user-doctor text-6xl text-blue-700 dark:text-blue-500'></i>
-							<div>
-								<p class="font-extrabold text-[2rem] text-center ">415</p>
-								<p class="font-medium text-lg text-center ">Pemateri</p>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 				</section>
+
+
 			{% case 'hero' %}
 				<section class="bg-[#F8FAFC]  mb-8" id="about">
 					<div class="mx-auto max-w-screen-xl md:min-h-screen flex md:flex-row flex-col md:py-0 py-4 items-center justify-between gap-4 px-4">
@@ -232,8 +187,9 @@
 						{% endfor %}
 					</div>
 					<div class="max-w-screen-xl w-full mx-auto px-4 mt-8" data-anijs="if: scroll, on: window, do: bounceInUp animated, before: $scrollReveal">
-						<a href="#" class="text-lg font-bold ">
-							<i class="fa-solid fa-arrow-right text-blue-700 dark:text-blue-500 ms-2"></i>
+						<a href={{ block.buttonLink}} class="text-lg font-bold ">
+
+							{{ block.buttonText }}<i class="fa-solid fa-arrow-right text-blue-700 dark:text-blue-500 ms-2"></i>
 						</a>
 					</div>
 				</section>
@@ -261,7 +217,7 @@
 									admin@multimedika.id
 								</p>
 								<a href="/contact" class="text-lg font-bold ">Read more contact
-																																																																																																		                        multimedia
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																									                        multimedia
 									<i class="fa-solid fa-arrow-right text-blue-700 dark:text-blue-500 ms-2"></i>
 								</a>
 							</div>
