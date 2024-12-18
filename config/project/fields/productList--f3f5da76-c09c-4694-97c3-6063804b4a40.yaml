@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: productList
+instructions: null
+name: 'Product List'
+searchable: false
+settings:
+  createButtonLabel: 'Add List Product'
+  defaultIndexViewMode: cards
+  entryTypes:
+    - 1b83a19e-5801-4bca-925c-9f8ad3ec2c97 # Product List
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

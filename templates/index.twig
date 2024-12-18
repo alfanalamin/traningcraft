@@ -206,43 +206,33 @@
 					</div>
 				</section>
 
+			{% case 'product' %}
 				<section class="bg-[#F8FAFC]  min-h-screen flex flex-col justify-center mb-8">
 					<div class="max-w-screen-xl w-full mx-auto px-4" data-anijs="if: scroll, on: window, do: bounceInDown animated, before: $scrollReveal">
 						<p class="text-blue-700 dark:text-blue-500 font-extrabold md:text-5xl text-3xl mb-8">
-							<span class="text-lime-700 dark:text-lime-500">Product in</span><br>
-							Multimedika Maha Data
+							{{block.title | raw}}
 						</p>
 					</div>
 					<div class="max-w-screen-xl mx-auto px-4 flex md:flex-row flex-col gap-8">
-						<div data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal" class="min-h-[200px] shadow  bg-[#F1F5F9] md:w-1/2 flex gap-4 px-4 rounded-xl items-center">
-							<img class="md:w-[160px] w-[80px] md:h-[160px] h-[80px]" src="https://dokterpost.com/assets/images/logo.png" alt="dokterpost">
-							<div>
-								<p class="text-blue-700 dark:text-blue-500 font-extrabold md:text-5xl text-3xl mb-4">
-									DokterPost
-								</p>
-								<p class="text-xs md:text-left text-justify ">
-									Dokterpost adalah layanan yang menyediakan seminar dan artikel berkualitas untuk membantu para
-																																																																																																																																																																																																																																																																																																																																																																				                        profesional medis meningkatkan pengetahuan dan wawasan mereka di bidang kesehatan. Melalui seminar
-																																																																																																																																																																																																																																																																																																																																																																				                        yang interaktif dan artikel yang informatif
-								</p>
+						{% for item in block.productList.all() %}
+							<div data-anijs="if: scroll, on: window, do: bounceInLeft animated, before: $scrollReveal" class="min-h-[200px] shadow  bg-[#F1F5F9] md:w-1/2 flex gap-4 px-4 rounded-xl items-center">
+								<img class="md:w-[160px] w-[80px] md:h-[160px] h-[80px]" src="{{ item.featuredImage.one().url }}" alt="dokterpost">
+
+								{% for category in item.postCategory.all() %}
+									<div>
+										<div class="text-blue-700 dark:text-blue-500 font-extrabold md:text-5xl text-3xl mb-4">
+											{{category.title}}
+										</div>
+										<div class="text-xs md:text-left text-justify ">
+											{{category.detail}}
+										</div>
+									</div>
+								{% endfor %}
 							</div>
-						</div>
-						<div data-anijs="if: scroll, on: window, do: bounceInRight animated, before: $scrollReveal" class="min-h-[200px] shadow  bg-[#F1F5F9] md:w-1/2 flex gap-4 px-4 rounded-xl items-center">
-							<img class="md:w-[160px] w-[80px] md:h-[160px] h-[80px]" src="https://doktercares.com/assets/images/doktercares-logo.png" alt="doktercares">
-							<div>
-								<p class="text-blue-700 dark:text-blue-500 font-extrabold md:text-5xl text-3xl mb-4">
-									DokterCares
-								</p>
-								<p class="text-xs md:text-left text-justify ">
-									Doktercares adalah layanan bimbingan belajar (bimbel) yang dirancang khusus untuk mendukung
-																																																																																																																																																																																																																																																																																																																																																																				                        pendidikan di bidang kesehatan, baik bagi mahasiswa maupun profesional medis. Melalui program
-																																																																																																																																																																																																																																																																																																																																																																				                        belajar yang terstruktur
-								</p>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 					<div class="max-w-screen-xl w-full mx-auto px-4 mt-8" data-anijs="if: scroll, on: window, do: bounceInUp animated, before: $scrollReveal">
-						<a href="#" class="text-lg font-bold ">Read more product multimedia
+						<a href="#" class="text-lg font-bold ">
 							<i class="fa-solid fa-arrow-right text-blue-700 dark:text-blue-500 ms-2"></i>
 						</a>
 					</div>
@@ -271,7 +261,7 @@
 									admin@multimedika.id
 								</p>
 								<a href="/contact" class="text-lg font-bold ">Read more contact
-																																																																																																																																																																																																																																						                        multimedia
+																																																																																																		                        multimedia
 									<i class="fa-solid fa-arrow-right text-blue-700 dark:text-blue-500 ms-2"></i>
 								</a>
 							</div>

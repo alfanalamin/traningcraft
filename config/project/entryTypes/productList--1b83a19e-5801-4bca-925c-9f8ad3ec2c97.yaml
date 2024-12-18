@@ -1,0 +1,53 @@
+color: null
+fieldLayouts:
+  3d29efc4-a0bd-48eb-a49d-6c0190730e8c:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-12-17T03:26:11+00:00'
+            elementCondition: null
+            fieldUid: 3fcf33b8-7bad-4794-8a1f-591cc0cf2ec6 # Post Category
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e3986f7c-0f23-4530-9d0b-9b5f6f3685b6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-17T03:19:24+00:00'
+            elementCondition: null
+            fieldUid: bd2542ae-0e50-4d2a-8e7d-b096b415f38c # Featured Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 763c9ed5-e11c-4c7b-be37-daa9442c7c9c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ab218fee-69fa-4b2f-bde1-4aa0db3d9ec2
+        userCondition: null
+handle: productList
+hasTitleField: false
+icon: ''
+name: 'Product List'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
